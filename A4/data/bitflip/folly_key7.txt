@@ -1,0 +1,60 @@
+$ python3 feistel.py kb -k 7
+Enter a plaintext line:
+folly
+------------------------------
+left: 0x666f6c6c  right: 0x79555555
+
+Round: 1
+flipped positions: 10111100011100101100011100111001
+flipped this round: 18
+left: 0x79555555  right: 0xda1dab55
+flipped so far: 18
+
+Round: 2
+flipped positions: 01110110111011111011000000010101
+flipped this round: 18
+left: 0xda1dab55  right: 0xfbae540
+flipped so far: 36
+
+Round: 3
+flipped positions: 00000000000000000000000000000001
+flipped this round: 1
+left: 0xfbae540  right: 0xda1dab54
+flipped so far: 36
+
+Round: 4
+flipped positions: 11010010111011000101111111110101
+flipped this round: 21
+left: 0xda1dab54  right: 0xdd56bab5
+flipped so far: 45
+
+Round: 5
+flipped positions: 01011001011000101000010010110010
+flipped this round: 13
+left: 0xdd56bab5  right: 0x837f2fe6
+flipped so far: 49
+
+Round: 6
+flipped positions: 10011100011010000110100000101101
+flipped this round: 14
+left: 0x837f2fe6  right: 0x413ed298
+flipped so far: 51
+
+Round: 7
+flipped positions: 00000000000000000000000000000001
+flipped this round: 1
+left: 0x413ed298  right: 0x837f2fe7
+flipped so far: 51
+
+Round: 8
+flipped positions: 11100001010000110111111101100000
+flipped this round: 16
+left: 0x837f2fe7  right: 0xa07dadf8
+flipped so far: 52
+
+Line after encryption:
+b'\x83\x7f/\xe7\xa0}\xad\xf8\x03'
+
+Line after decryption:
+folly
+

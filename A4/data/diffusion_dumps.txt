@@ -1,0 +1,45 @@
+$ cat >in1.txt
+folly
+$ cat >in2.txt
+golly
+$ python3 feistel.py f -k 888 -i in1.txt -o out1 -e
+Encryption completed.
+$ python3 feistel.py f -k 888 -i in2.txt -o out2 -e
+Encryption completed.
+$ python3 bitdiff.py out1 out2
+32 bits are different
+byte lengths: file1 9 bytes  file2 9 bytes
+
+
+
+
+$ cat >in1.txt
+folly
+$ cat >in3.txt
+follx
+$ python3 feistel.py f -k 888 -i in1.txt -o out1 -e
+Encryption completed.
+$ python3 feistel.py f -k 888 -i in4.txt -o out3 -e
+Encryption completed.
+$ python3 bitdiff.py out1 out3
+31 bits are different
+byte lengths: file1 9 bytes  file2 9 bytes
+
+
+
+
+
+$ python3 feistel.py f -k 888 -i in4.txt -o out4 -e
+Encryption completed.
+$ python3 feistel.py f -k 888 -i in5.txt -o out5 -e
+Encryption completed.
+$ python3 feistel.py f -k 888 -i in6.txt -o out6 -e
+Encryption completed.
+$ python3 bitdiff.py out4 out5
+34 bits are different
+byte lengths: file1 729 bytes  file2 729 bytes
+$ python3 bitdiff.py out4 out6
+30 bits are different
+byte lengths: file1 729 bytes  file2 729 bytes
+
+

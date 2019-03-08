@@ -1,0 +1,110 @@
+$ python3 feistel.py
+usage: feistel.py [-h] -k KEY [-i INPUT] [-o OUTPUT] [-e] [-d] inputtype
+feistel.py: error: the following arguments are required: inputtype, -k/--key
+$ 
+
+
+
+
+$ touch empty.txt
+$ python3 feistel.py f -k 789 -i empty.txt -o out -e
+Error: input file is empty.
+Usage example: python3 feistel.py f -k 1359876 -i in.txt -o out.txt -e
+$
+
+
+
+
+$ python3 feistel.py f -k 555 -i in.txt -o out -e
+Encryption completed.
+
+
+
+
+$ python3 feistel.py f -k 555 -i out -o final.txt -d
+Decryption completed.
+$ head -n 4 final.txt 
+hello
+world
+hello
+rina
+$
+
+
+
+
+
+$ python3 feistel.py kb -k 451
+Enter a plaintext line:
+rina 
+------------------------------
+left: 0x72696e61  right: 0x55555555
+
+Round: 1
+flipped positions: 00001010100001100010101001111110
+flipped this round: 14
+left: 0x55555555  right: 0x78ef441f
+flipped so far: 14
+
+Round: 2
+flipped positions: 11001100110111111101011010101011
+flipped this round: 21
+left: 0x78ef441f  right: 0x998a83fe
+flipped so far: 35
+
+Round: 3
+flipped positions: 01111101000001111000110111101110
+flipped this round: 19
+left: 0x998a83fe  right: 0x5e8c9f1
+flipped so far: 45
+
+Round: 4
+flipped positions: 10110110101100100110010100000100
+flipped this round: 14
+left: 0x5e8c9f1  right: 0x2f38e6fa
+flipped so far: 52
+
+Round: 5
+flipped positions: 01101001110111101100001001011111
+flipped this round: 19
+left: 0x2f38e6fa  right: 0x6c360bae
+flipped so far: 57
+
+Round: 6
+flipped positions: 01010001010010010111011001000011
+flipped this round: 14
+left: 0x6c360bae  right: 0x7e7190b9
+flipped so far: 59
+
+Round: 7
+flipped positions: 01101011111011001001110000111011
+flipped this round: 19
+left: 0x7e7190b9  right: 0x7da9795
+flipped so far: 61
+
+Round: 8
+flipped positions: 11111010111100110110011011010001
+flipped this round: 20
+left: 0x7da9795  right: 0x8482f668
+flipped so far: 62
+
+Line after encryption:
+\x07\xda\x97\x95\x84\x82\xf6h\x04
+
+Line after decryption:
+rina
+$
+
+
+
+$ python3 feistel_unittest.py 
+...............................
+----------------------------------------------------------------------
+Ran 31 tests in 0.020s
+
+OK
+
+
+
+
+
